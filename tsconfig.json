@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"jsx": "react"
+	},
+	"exclude": [
+		"typings/browser.d.ts",
+		"typings/browser",
+		"node_modules",
+		"dev_server.js"
+	]
+}
