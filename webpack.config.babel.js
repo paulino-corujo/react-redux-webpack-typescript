@@ -23,6 +23,9 @@ const webpackConfig = {
         new webpack.NoErrorsPlugin()
     ],
     module: {
+        preLoaders: [
+            { test: /\.tsx?$/, loader: "tslint" }
+        ],
         loaders: [
             { test: /\.tsx?$/, loader: 'babel!ts', include: path.join(__dirname, 'src') }
         ]
@@ -38,6 +41,10 @@ const webpackConfig = {
         path: path.join(__dirname, 'build'),
         publicPath: "/",
         filename: isProduction ? 'assets/js/[name]-[chunkhash].js' : 'assets/js/[name].js'
+    },
+    tslint: {
+        emitErrors: false,
+        failOnHint: true
     }
 
 };

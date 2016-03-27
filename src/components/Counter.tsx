@@ -1,27 +1,26 @@
-import * as React from "react";
-import { connect } from "react-redux";
-
-import { counterActions } from "../actions/counter";
-import { ICounterProps, ICounterState } from "../models/types.d.ts";
+import * as React from 'react';
+import { connect } from 'react-redux';
+import { counterActions } from '../actions/counter';
+import { ICounterProps, ICounterState } from '../models/types.d.ts';
 
 class Counter extends React.Component<ICounterProps, ICounterState> {
 
-    constructor(props) {
+    constructor(props: ICounterProps) {
         super(props);
     }
 
-    incrementIfOdd() {
+    public incrementIfOdd(): void {
         if (this.props.value % 2 !== 0) {
-            this.props.increment()
+            this.props.increment();
         }
     }
 
-    incrementAsync() {
-        setTimeout(this.props.increment, 1000)
+    public incrementAsync(): void {
+        setTimeout(this.props.increment, 1000);
     }
 
-    render() {
-        const { value, increment, decrement } = this.props;
+    public render(): JSX.Element {
+        const { value, increment, decrement }: {value: number, increment: () => void , decrement: () => void} = this.props;
         return (
             <p>
                 Clicked: {value} times
@@ -42,11 +41,11 @@ class Counter extends React.Component<ICounterProps, ICounterState> {
                     Increment async
                 </button>
             </p>
-        )
+        );
     }
 }
 
-function mapStateToProps(state: ICounterState) {
+function mapStateToProps(state: ICounterState): any {
     return {
         value: state.counter
     };
